@@ -1,0 +1,13 @@
+.grid-projects {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    box-sizing: border-box;
+    width: 80vw;
+}
+
+@media only screen and (max-width: 737px) {
+    .grid-projects {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+}
