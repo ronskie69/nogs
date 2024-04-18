@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://10.0.6.2/pay/payslip4.php?emp_number=1-301 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Payroll - Payslip </title>
+    <link rel="stylesheet" href="./marco_hol_files/jquery-min.css">
+    <script src="./marco_hol_files/jquery-2.1.3.min.js.download"></script>
+    <script src="./marco_hol_files/metro.js.download"></script>
+    <script src="./marco_hol_files/jquery.dataTables.min.js.download"></script>
+    <script src="./marco_hol_files/jquery-ui.min.js.download"></script>
+    <script src="./marco_hol_files/jquery.fixedTblHdrLftCol.js.download"></script>
+    <link rel="shortcut icon" href="http://10.0.6.2/pay/images/icon.png">
+    <link href="./marco_hol_files/metro.css" rel="stylesheet">
+    <link href="./marco_hol_files/metro-icons.css" rel="stylesheet">
+    <link href="./marco_hol_files/metro-schemes.css" rel="stylesheet">
+    <link href="./marco_hol_files/metro-responsive.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background: #fff;
+        }
+    .table tr td {
+        /* white-space: nowrap;
+        white-space: pre; */
+        padding: 2px;
+        padding-right: 5px;
+    }
+    </style>
+<script charset="utf-8" src="chrome-extension://donbcfbmhbcapadipfkeojnmajbakjdc/dist/ruffle.js?id=74854009310"></script></head>
+<body>
+
+<style>
+    .fab {
+        position: relative;
+        animation: talon infinite alternate .6s;
+        cursor: pointer;
+        z-index: 100;
+    }
+    @keyframes talon {
+        from{transform: translateY(-8px);}
+        to{
+            transform: translateY(0px);
+            box-shadow: rgba(38, 37, 38, 0.4) 0px 5px, rgba(67, 65, 66, 0.3) 0px 10px, rgba(72, 71, 72, 0.2) 0px 15px, rgba(0, 0, 0, 0.1) 0px 20px, rgba(0, 0, 0, 0.05) 0px 25px;
+        }
+    }
+</style>
+<div class="app-bar darcula noPrint" data-role="appbar">
+    <div class="container noPrint">
+        <a class="app-bar-element branding" href="http://10.0.6.2/pay/">
+            <img src="./marco_hol_files/Logo.png" style="height: 18px; display: inline-block; margin-bottom: 5px;">
+        </a>
+        <div class="app-bar-element place-right">
+            <a class="fg-white"><span class="mif-cog mif-lg"></span></a>
+            <div class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true">
+                <div class="padding10" style="width: 200px;">
+                    <h4 class="text-light">Hello, Eron!</h4>
+                    <a href="http://10.0.6.2/pay/set_cutoff.php"><span class="mif-calendar text-light fg-grayLight fg-hover-dark"> Change Cutoff</span></a>
+                    <a href="http://10.0.6.2/dailies/"><span class="mif-profile text-light fg-grayLight fg-hover-dark"> Dailies Payroll</span></a>
+                    <a id="logout_link" href="http://10.0.6.2/pay/logout.php"><span class="mif-exit text-light fg-grayLight fg-hover-dark"> Logout</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="app-bar-element place-right">
+            <span class="mif-calendar text-light fg-white">
+            Cutoff: 
+            10-25-2023            </span>
+        </div>
+<div class="app-bar-element place-right fg-yellow bg-hover-darcula">
+    <span data-role="hint" data-hint-background="bg-blue" data-hint-color="fg-black" data-hint-mode="2" data-hint="This cutoff is not yet posted."><span class="mif-info mif-lg fg-blue"></span>
+    </span>
+</div>
+        <ul class="app-bar-menu small-dropdown">
+            <li data-flexorderorigin="0" data-flexorder="1"><a href="http://10.0.6.2/pay/payslip4.php?emp_number=1-301#" class="dropdown-toggle">Files</a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a href="http://10.0.6.2/pay/files_employees.php">Employees</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_dtr.php">Daily Time Record</a></li>
+                    <li><a href="http://10.0.6.2/pay/payslip4.php?emp_number=1-301" class="dropdown-toggle">CWW</a>
+                        <ul class="d-menu" data-role="dropdown">
+                            <li><a href="http://10.0.6.2/pay/files_cww_employees.php">Employee List</a></li>
+                            <li><a href="http://10.0.6.2/pay/files_cww_calendar.php">Calendar</a></li>
+                        </ul>
+                    </li>
+                                        <li><a href="http://10.0.6.2/pay/files_employees_rates.php">Employee Rates</a></li>
+                                        <li class="divider"></li>
+                    <li><a href="http://10.0.6.2/pay/files_loans.php">Loans</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_donations.php">Donations</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_loan_summary.php">Summary of Loans (Per Cutoff)</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_allocation_table.php">Allocation Table</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_sss_table2023.php">SSS Table</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_medicare_table.php">Medicare Table</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://10.0.6.2/pay/files_overtime.php">Overtime</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_canteen.php">Canteen</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_allowance.php">Allowance</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_holiday.php">Holiday</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_adjustments.php">Adjustments</a></li>
+                    
+					
+                                        <li><a href="http://10.0.6.2/pay/payslip4.php?emp_number=1-301" class="dropdown-toggle">Miscellaneous Pay</a>
+                        <ul class="d-menu" data-role="dropdown">
+                            <li><a href="http://10.0.6.2/pay/files_misc_midyear.php">Mid-year Bonus</a></li>
+                            <li><a href="http://10.0.6.2/pay/files_misc_taxrefund.php">Tax Refund</a></li>
+                            <li><a href="http://10.0.6.2/pay/files_misc_13th_month.php">13th Month</a></li>
+                            <li><a href="http://10.0.6.2/pay/files_misc_quarantine.php">Quarantine</a></li>
+                            <li><a href="http://10.0.6.2/pay/files_misc_rgc_financial_assistance.php"> RGC Financial Assistance </a></li>
+                            <li><a href="http://10.0.6.2/pay/files_misc_backwage.php">Back Wage</a></li>
+                            <li><a href="http://10.0.6.2/pay/files_misc_slvl.php">SLVL</a></li>
+                        </ul>
+                    </li>
+                                        <li class="divider"></li>
+                    <li><a href="http://10.0.6.2/pay/files_sl_vl.php">SL/ VL</a></li>
+                    <li><a href="http://10.0.6.2/forms">New SL/ VL 2022</a></li>
+                    <li><a href="http://10.0.6.2/pay/files_sl_vl_employee.php">SL/ VL per Employee</a></li>
+					<li class="divider"></li>
+					<li><a href="http://10.0.6.2/pay/reports_employee_leaves.php">Employee Leaves Summary</a></li>
+					<li><a href="http://10.0.6.2/pay/reports_employee_sl.php">Employee Reasons of Leaves</a></li>
+                </ul>
+            </li>
+        </ul>
+                    <ul class="app-bar-menu small-dropdown">
+                <li data-flexorderorigin="0" data-flexorder="1"><a href="http://10.0.6.2/pay/payslip4.php?emp_number=1-301#" class="dropdown-toggle">Process</a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li><a href="http://10.0.6.2/pay/process_bpi.php">BPI</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://10.0.6.2/pay/process_bpi_13th.php">13th Month Pay</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_bpi_quarantine.php">Quarantine Pay</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_bpi_rgc_financial_assistance.php">RGC Financial Assistance</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_bpi_backwage.php">Back Wage Pay</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_bpi_slvl.php">SLVL Pay</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_slvl_conversion_.php">SL/VL Conversion</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_taxrefund_.php">Tax Refund</a></li>
+                        <li><a href="http://10.0.6.2/pay/process_midyear.php">Mid Year Bonus</a></li>
+						<li class="divider"></li>
+						<li class="divider"></li>
+						<li><a href="http://10.0.6.2/pay/process_post.php" onclick="return  confirm(&#39;Do you want to post payroll? Y/N&#39;)">Post Payroll</a></li>
+						
+                    </ul>
+                </li>
+            </ul>
+            <ul class="app-bar-menu small-dropdown">
+                <li data-flexorderorigin="0" data-flexorder="1"><a href="http://10.0.6.2/pay/payslip4.php?emp_number=1-301#" class="dropdown-toggle  ">Reports</a>
+                    <ul class="d-menu" data-role="dropdown">
+                                            <li><a href="http://10.0.6.2/pay/reports_payslip.php" onclick="return  confirm(&#39;Do you want to see payslip? Y/N&#39;)"> Payslip </a></li>
+                        <li><a href="http://10.0.6.2/pay/payslip4.php"> View Single Payslip </a></li>
+                        
+                    
+					<li><a href="http://10.0.6.2/pay/hr_payslip.php"> HR Payslip </a></li>					
+                                                <li><a href="http://10.0.6.2/pay/reports_pay_history.php">Payroll History</a></li>
+                                                <li><a href="http://10.0.6.2/pay/reports_payroll_charges.php">Payroll Charges</a></li>
+                        <li><a href="http://10.0.6.2/pay/reports_accounting.php">Accounting Report</a></li>
+                        <li><a href="http://10.0.6.2/pay/reports_payroll_register.php">Payroll Register</a></li>
+                        <li><a href="http://10.0.6.2/pay/reports_loan_balances.php">Loan Balances</a></li>
+                        <li><a href="http://10.0.6.2/pay/reports_loan_coop.php">Loans/Coop Summary</a></li>
+                        <li><a href="http://10.0.6.2/pay/files_13thmo_summary.php">13th Month Summary</a></li>
+                                                <li class="divider"></li>
+                        <li><a href="http://10.0.6.2/pay/reports_government.php">Government Deduction</a></li>
+                        <li><a href="http://10.0.6.2/pay/reports_labor_cost.php">Labor Cost</a></li>
+                        <li class="divider"></li>
+                                                <li><a href="http://10.0.6.2/pay/reports_hours.php">Employee Hours</a></li>
+                                                    <li class="divider"></li>
+                            <li><a href="http://10.0.6.2/pay/reports_employee_summary.php">Employee Summary</a></li>
+                            <li><a href="http://10.0.6.2/pay/reports_finance_hours.php">Employee Hours (Budget)</a></li>
+                        						<li class="divider"></li>
+						
+						<li><a href="http://10.0.6.2/pay/email_payslip.php" onclick="return  confirm(&#39;Do you want to send payslip now? Y/N&#39;)"> Email Payslip </a></li>                         <!--<li><a href="/eims/">Information System</a></li> SYSTEM NA PANLABAS -->
+                    </ul>
+                </li>
+            </ul>
+            <ul class="app-bar-menu small-dropdown">
+                <li data-flexorderorigin="0" data-flexorder="1"><a href="http://10.0.6.2/pay/payslip4.php?emp_number=1-301#" class="dropdown-toggle">Utilities</a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li><a href="http://10.0.6.2/pay/util_archive.php">Archive</a></li>
+                        <li><a href="http://10.0.6.2/pay/util_bpidata.php">BPI Data</a></li>
+                        <li><a href="http://10.0.6.2/pay/util_pagibig.php">Pag-IBIG Contributions</a></li>
+                        <li><a href="http://10.0.6.2/pay/util_tax_calc.php">Withholding Tax Calculator</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="app-bar-pullbutton automatic" style="display: none;"></div><div class="clearfix" style="width: 0;"></div><nav class="app-bar-pullmenu hidden flexstyle-app-bar-menu" style="display: none;"><ul class="app-bar-pullmenubar hidden app-bar-menu"></ul><ul class="app-bar-pullmenubar hidden app-bar-menu"></ul><ul class="app-bar-pullmenubar hidden app-bar-menu"></ul><ul class="app-bar-pullmenubar hidden app-bar-menu"></ul></nav></div>
+</div>
+<a id="goTop" class="bg-dark fg-white noPrint fab"><span class="mif-expand-less mif-lg"></span></a>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if($(this).scrollTop() > 100){
+                $('#goTop').stop().animate({
+                    bottom: '20px'    
+                    }, 500);
+            }
+            else{
+                $('#goTop').stop().animate({
+                   bottom: '-100px'    
+                }, 500);
+            }
+        });
+        $('#goTop').click(function() {
+            $('html, body').stop().animate({
+               scrollTop: 0
+            }, 500, function() {
+               $('#goTop').stop().animate({
+                   bottom: '-100px'    
+               }, 500);
+            });
+        });
+    });
+</script>
+<style type="text/css">
+    #goTop {
+        padding:6px;
+        position:fixed;
+        bottom:-100px;
+        right:20px;
+        border-radius: 100px;
+    }
+</style>
+<script>
+    const iconTypes = {
+        q: 'question',
+        w: 'warning',
+        e: 'error',
+        s: 'success',
+        i: 'info'
+    };
+    
+
+    async function createConfirmation(
+        icon = iconTypes.q, 
+        title ='', 
+        text= '', 
+        text1 = '', 
+        text2 = '',){
+        const confirm = await Swal.fire({
+            icon,
+            title,
+            text,
+            showDenyButton: true,
+            reverseButtons: true,
+            confirmButtonText: text1,
+            denyButtonText: text2,
+            allowOutsideClick: false,
+            confirmButtonColor: '#da5a53',
+            denyButtonColor: '#3c3f41'
+        })
+        let result = confirm.isConfirmed ? confirm.isConfirmed : false
+        return result
+    }
+
+    $('#logout_link').click(function(e){
+        e.preventDefault();
+
+        createConfirmation(
+            iconTypes.q, 
+            'Are you sure to logout?',
+            '',
+            'Yes',
+            'No'
+            ).then(ok => {
+                if(ok) {
+                    return window.location.href = "/pay/logout.php"
+                }
+            })
+
+    })
+
+    setInterval(() => {
+        let timeNow = new Date()
+        let remaining_time = Math.floor((timeNow - myLastActivity) /1000)
+
+        console.log(remaining_time)
+    }, 1000)
+</script><div class="container">10/25/2023 - 11/09/2023Absent: 7.2 // Late: 5.62 / 01-301<br>    <!-- <table class="table" style="border: 1px solid #404040; margin-bottom: 39px"> -->
+
+        
+    <table class="table" style="border: 1px solid #404040; margin-bottom: 0px">
+        <tbody><tr>
+            <td colspan="9">
+                ROBERTS - AIPMC
+            </td>
+            <td rowspan="18" style="border-left: 1px solid #404040; width: 20px; position: relative">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="position:relative;">
+                    <div class="rotate90 align-center" style="position: absolute; width: 403px; top: -24px; right: -188px; border: 0px solid red">
+                        1-301 — GAY  MARCO <br> PPIC-DELIVERY                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Emp #
+            </td>
+            <td colspan="4">
+                : 1-301            </td>
+            <td>
+                Rundate
+            </td>
+            <td colspan="3">
+                : 11/14/2023            </td>
+        </tr>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td colspan="4">
+                : GAY  MARCO            </td>
+            <td>
+                Period
+            </td>
+            <td colspan="3">
+                : 10/25/2023 - 11/09/2023            </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #404040">
+            <td>
+                Rate
+            </td>
+            <td colspan="4">
+                : 26,336.22 / 1,006.48            </td>
+            <td>
+                Payslip #
+            </td>
+            <td colspan="3">
+                : 1            </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #404040">
+            <td colspan="3" class="align-center" style="width: 30%">
+                E A R N I N G S
+            </td>
+            <td colspan="6" class="align-center" style="border-left: 1px solid #404040; width: 68%">
+                D E D U C T I O N S
+            </td>
+        </tr>
+        <tr style="border-bottom: 1px solid #404040">
+            <td>
+            </td>
+            <td class="align-center">
+                Hours
+            </td>
+            <td class="align-center">
+                Amount
+            </td>
+            <td class="align-center" style="border-left: 1px solid #404040">
+                Contributions
+            </td><td class="align-center">
+                Amount
+            </td>
+            <td style="border-bottom: 1px solid #404040">
+            </td>
+            
+            <td class="align-center" style="border-left: 1px solid #404040">
+                Co. Deductions
+            </td>
+            <td class="align-center">
+                Amount
+            </td>
+            
+            <td class="align-center">
+                Balance
+        </td></tr>
+        <tr>
+            <td>
+                Basic
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right">13,168.11</td>
+            <td style="border-left: 1px solid #404040">
+                SSS
+            </td>
+            <td class="align-right">292.50</td><td></td>
+            <td style="border-left: 1px solid #404040">
+                Canteen
+            </td>
+            <td class="align-right"></td><td></td>
+        </tr>
+        <tr>
+            <td>
+                Regular OT
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td style="border-left: 1px solid #404040">
+                Pag-IBIG
+            </td>
+            <td class="align-right">100.00</td><td></td>
+            <td style="border-left: 1px solid #404040">
+                Cash Advance
+            </td>
+            <td class="align-right">833.33</td>
+            <td class="align-right">6,558.49</td>
+        </tr>
+        <tr>
+            <td>
+                Sunday OT
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td style="border-left: 1px solid #404040">
+                Philhealth
+            </td>
+            <td class="align-right">311.29</td><td></td>
+            <td style="border-left: 1px solid #404040">
+                Donation
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+        </tr>
+        <!-- comment restday ot pag walang restday ot -->
+        <tr>
+            <td>
+                Rest day OT
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td style="border-left: 1px solid #404040">
+                W/ Tax
+            </td>
+            <td class="align-right"></td><td></td>
+            <td style="border-left: 1px solid #404040">
+                Others
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+        </tr>
+        <tr>
+            <td>
+                Spl Hol OT
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td class="align-right" style="border-left: solid 1px #404040;"></td> <!-- comment border if walang restday ot -->
+            <td class="align-right"></td>
+            <td class="align-right"></td> <!-- comment this if walang restday ot -->
+            <td class="align-right" style="border-left: solid 1px #404040;"></td> <!-- comment this if walang restday ot -->
+        </tr>
+        <tr>
+            <td>
+                Leg Hol OT
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td colspan="3" style="border-left: 1px solid #404040"></td>
+            <td style="border-left: 1px solid #404040" colspan="3"></td>
+        </tr>
+        <tr>
+            <td>
+                Night Diff 0            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td class="align-center" style="border-left: 1px solid #404040; border-top: 1px solid #404040; border-bottom: 1px solid #404040">
+                Gov. Loans
+            </td>
+            <td class="align-center" style="border-top: 1px solid #404040; border-bottom: 1px solid #404040">
+                Amount
+            </td>
+            
+            <td class="align-center" style="border-top: 1px solid #404040; border-bottom: 1px solid #404040">
+                Balance
+            </td>
+            <td class="align-center" style="border-left: 1px solid #404040; border-top: 1px solid #404040; border-bottom: 1px solid #404040">
+                Coop
+            </td>
+            <td class="align-center" style="border-top: 1px solid #404040; border-bottom: 1px solid #404040">
+                Amount
+            </td>
+            <td class="align-center" style="border-top: 1px solid #404040; border-bottom: 1px solid #404040">
+                Balance
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                SL/VL
+            </td>
+            <td class="align-right">2,113.61</td>
+            <td style="border-left: 1px solid #404040">
+                SSS Loan
+            </td>
+            <td class="align-right">922.90</td>
+            <td class="align-right">32,301.50</td>
+            <td style="border-left: 1px solid #404040">
+                Loan
+            </td>
+            <td class="align-right">490.00</td>
+            <td class="align-right">3,430.00</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Abs/Late/Undertime
+            </td>
+            <td class="align-right">(7,953.71)</td>
+            <td style="border-left: 1px solid #404040">
+                Multi-purpose
+            </td>
+            <td class="align-right">298.39</td>
+            <td class="align-right">11,637.21</td>
+            <td style="border-left: 1px solid #404040">
+                Rice
+            </td>
+            <td class="align-right">1,050.00</td>
+            <td class="align-right">12,600.00</td>
+        </tr>
+		
+		 <tr>
+			
+            			
+			<td style="border-left: 1px solid #404040">
+                
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td style="border-left: 1px solid #404040">
+                
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+			            
+        </tr>
+
+        <tr>
+            <td colspan="2" rowspan="2" valign="top">
+                Adjustments (BAS)<br><br>            </td>
+            <td class="align-right" rowspan="2" valign="top">
+                62.90<br>            </td>
+            <td style="border-left: 1px solid #404040">
+                SSS-Calamity
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right"></td>
+            <td style="border-left: 1px solid #404040">
+                Appliance
+            </td>
+            <td class="align-right">2,458.33</td>
+            <td class="align-right">54,083.34</td>
+        </tr>
+        <tr style="height: 77px; vertical-align: top">
+            <td style="border-left: 1px solid #404040">
+                Housing
+            </td>
+            <td class="align-right"></td>
+            <td class="align-right">170,945.59</td>
+            <td colspan="3" style="border-left: 1px solid #404040"></td>
+        </tr>
+        <tr style="border-top: 1px solid #404040">
+            <td colspan="2">
+                Gross Pay
+            </td>
+            <td class="align-right">7,390.91</td>
+            <td colspan="2" style="border-left: 1px solid #404040">
+                Total Deduction
+            </td>
+            <td class="align-right">6,756.74</td>
+            <td colspan="2" style="border-left: 1px solid #404040">
+                Net Pay
+            </td>
+            <td class="align-right">634.18</td>
+        </tr>
+		
+    </tbody></table>
+	
+    
+		
+	
+	
+<div class="flex-grid" style="margin-bottom: 39px"><div class="row text-secondary"><div class="cell colspan12" style="margin-top: 10px;"></div><div class="cell colspan4"></div><div class="cell colspan4 align-right"></div></div></div></div>
+<!-- SPACER -->
+ <!-- ADDED FOR SEARCHING PAYSLIPS -->
+<div class="container">
+    <div class="row">
+        <form action="http://10.0.6.2/pay/payslip4.php?emp_number=1-301" method="GET">
+            <input type="search" placeholder="Search via employee number..." value="1-301" name="emp_number" id="emp_number" class="ui-autocomplete-input" autocomplete="off">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+
+<script>
+    $('#emp_number').autocomplete({
+        source: './autocomplete.php',
+    })
+</script><ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+</body></html>

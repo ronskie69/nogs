@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lexie';
+    src: url('../fonts/Museo.ttf');
+}
+
+@font-face {
+    font-family: 'Gruppo';
+    src: url('../fonts/Gruppo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Coffee';
+    src: url('../fonts/Black-coffee-shadow.ttf');
+}
+
+@font-face {
+    font-family: 'Coffee2';
+    src: url('../fonts/Black-coffee.ttf');
+}
+
+.app {
+    font-family: 'Poppins', sans-serif;
+}
+.rainify {
+    background: url('../images/rain.gif');
+    background-size: 250px;
+}
+@media screen and (min-width: 1027px) {
+    .list-about-me {
+        padding: 70px !important;
+        margin: 0 320px !important;
+    }
+}

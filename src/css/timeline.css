@@ -1,0 +1,39 @@
+.nth-child:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.nth-child:nth-child(even) .text-holder {
+    text-align: right !important;
+}
+.nth-child:nth-child(even) .circle-timeline {
+    right: -6px !important; /*82px*/
+    left: unset !important;
+}
+.nth-child:nth-child(even) .text-holder {
+    padding-left: 10px !important;
+    padding-right: 20px !important;
+    text-align: right !important;
+}
+  /* @media all and (max-width: 768px) {
+    .tcontainer::before {
+        right: unset !important;
+        top: 0 !important;
+        left: 106px;
+    }
+    .nth-child:nth-child(2n) .text-holder {
+        padding: 0px;
+        text-align: left !important;
+    }
+    .nth-child:nth-child(2n) .circle-timeline {
+        left: -6px !important;
+        right: unset !important;
+    }
+    .blank {
+        display: none;
+    }
+    .text-holder  {
+        width: 100%;
+    }
+    .nth-child:nth-child(even) .text-holder span {
+        text-align: left !important;
+    }
+  } */

@@ -1,0 +1,62 @@
+{
+  "name": "nogs",
+  "version": "0.1.0",
+  "homepage": "https://ronskie69.github.io/",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^10.4.9",
+    "@testing-library/user-event": "^12.8.3",
+    "aos": "^2.3.4",
+    "framer-motion": "^4.1.17",
+    "isotope-layout": "^3.0.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-inview": "^4.4.1",
+    "react-icons": "^3.11.0",
+    "react-image-lightbox": "^5.1.4",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "5.0.0",
+    "react-scroll": "^1.8.6",
+    "react-slick": "^0.28.1",
+    "react-type-animation": "^1.1.2",
+    "slick-carousel": "^1.8.1",
+    "surge": "^0.23.1",
+    "typewriter-effect": "^2.18.2",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  },
+  "keywords": [
+    "sunogan",
+    "sunog"
+  ],
+  "author": "nogsuu",
+  "license": "ISC"
+}
