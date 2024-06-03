@@ -29,7 +29,7 @@ function Intro() {
         >
             <Center m={4}>
                 <Avatar
-                    src={require('../images/ako01.jpg')}
+                    src={require('../images/meee.jpg')}
                     boxSize="75px"
                     background="transparent"
                     borderColor="#a0522d"

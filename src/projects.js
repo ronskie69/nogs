@@ -11,6 +11,10 @@ import {
     FaAdobe
 } from 'react-icons/fa'
 
+ import EmployeeData from './files/employee_data.xlsx';
+ import SalesData from './files/sales_table.xlsx';
+ import Resto from './files/resto.xlsx';
+
 const web= [
     {
         id: 1,
@@ -324,7 +328,7 @@ const company= [
         id: 1,
         title: 'Online SLVL',
         info: "Online Leave, Overtime and Undertime Filing",
-        image: require('./images/slvl1.webp'),
+        image: require('./images/e-leave.png'),
         languages: [
             {
                 id: 1,
@@ -387,7 +391,7 @@ const company= [
         id: 4,
         title: 'EI System',
         info: 'Employee Information System (generate reports, viewing information, etc.) I have used a free bootstrap 5 template here.',
-        image: require('./images/robex.png'),
+        image: require('./images/hire_resig.jpg'),
         languages: [
             {
                 id: 1,
@@ -562,8 +566,42 @@ const graphics = [
             }
         ],
         isLoaded: false,
-        type: "Graphic"
+        type: "Graphic",
     },
 ]
 
-export { web, graphics, company }
+// i love u so much maj, sana magkita ulit tayo someday hehehe >.< <3
+const excel= [
+    {
+        id: 1,
+        title: "Sales Report",
+        description: 'Sales Report with Chart',
+        image: require('./images/excel2.jpg'),
+        isLoaded: false,
+        type: "Data",
+        languages: [],
+        file: SalesData
+    },
+    {
+        id: 1,
+        title: "Employee Data",
+        description: 'Employee Data with Chart',
+        image: require('./images/excel1.jpg'),
+        isLoaded: false,
+        type: "Data",
+        languages: [],
+        file: EmployeeData
+    },
+    {
+        id: 1,
+        title: "Restaurant Sales",
+        description: 'Restaurant Sales Dashboard',
+        image: require('./images/dashboard_excel.png'),
+        isLoaded: false,
+        type: "Data",
+        languages: [],
+        file: Resto
+    },
+];
+
+export { web, graphics, company, excel }

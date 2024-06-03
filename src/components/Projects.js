@@ -15,7 +15,7 @@ import {
 import Lightbox from 'react-image-lightbox'
 import React, { useEffect, useState } from 'react'
 import Heady from './Heady'
-import { web, graphics, company
+import { web, graphics, company, excel
  } from '../projects'
 import ProjectCard from './ProjectCard'
 
@@ -29,6 +29,7 @@ function Projects() {
     const [ isOpen, setIsOpen ] = useState(false)
     const [ smallScreen ] = useMediaQuery('(max-width: 768px)')
     const theme = useColorModeValue("light", "dark")
+
     useEffect(() => {
         Aos.refresh()
     },[selected])
@@ -58,14 +59,21 @@ function Projects() {
                     boxShadow: 'none'
                 }}
                 textColor={selected === "Graphic" && "#a0522d"}>
-                    <Text size="sm" fontWeight="normal" fontSize={14}>Graphic</Text>
+                    <Text size="sm" fontWeight="normal" fontSize={14}>Design</Text>
                 </Tab>
                 <Tab onClick={() => setSelected("Company")}
                 _focus={{
                     boxShadow: 'none'
                 }}
                 textColor={selected === "Company" && "#a0522d"}>
-                    <Text size="sm" fontWeight="normal" fontSize={14}>Freelance</Text>
+                    <Text size="sm" fontWeight="normal" fontSize={14}>Projects</Text>
+                </Tab>
+                <Tab onClick={() => setSelected("Data")}
+                _focus={{
+                    boxShadow: 'none'
+                }}
+                textColor={selected === "Data" && "#a0522d"}>
+                    <Text size="sm" fontWeight="normal" fontSize={14}>Data Charts</Text>
                 </Tab>
             </TabList>
             <TabPanels>
@@ -101,6 +109,7 @@ function Projects() {
                                         <Image
                                             src={project.image}
                                             border='1px'
+                                            borderColor={'#f4f5f6'}
                                             w="full"
                                             boxShadow="lg"
                                             boxSize={smallScreen ? "75px": "200px"}
@@ -141,6 +150,24 @@ function Projects() {
                                         key={project.id}
                                         allProjects={company}
                                         project={project}/>
+                                )
+                            })
+                        }
+                    </Grid>
+                </TabPanel>
+                <TabPanel>
+                    <Grid 
+                        mt={6}
+                        className="grid-projects"
+                        spacing={6}>
+                        {
+                            excel.map((data, index) => {
+                                return (
+                                    <ProjectCard
+                                        index={index}
+                                        key={data.id}
+                                        allProjects={excel}
+                                        project={data}/>
                                 )
                             })
                         }

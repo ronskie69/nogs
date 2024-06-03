@@ -36,7 +36,7 @@ function Landing({onToggleDog}) {
             fontweight="bold"
             as="h1"
             size="xl"
-        >Hi! I'm Nogsuu!</Heady>
+        >Hi! I'm Nogs!</Heady>
         <Hachiko
             src={Dog}
             dragConstraints={{

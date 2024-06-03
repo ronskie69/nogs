@@ -11,7 +11,7 @@ import {
     useColorModeValue,
     Spacer
 } from '@chakra-ui/react'
-import { FaLink } from 'react-icons/fa'
+import { FaLink, FaDownload } from 'react-icons/fa'
 import LightBox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 
@@ -20,6 +20,17 @@ function ProjectCard({project, allProjects, index}) {
     const [ isOpen, setOpen ] = React.useState(false);
     const [ currentImg, setCurrentImg ] = React.useState(0)
     const theme = useColorModeValue("light", "dark")
+
+
+    // for file donwloads (ayaw kasi minsan gumana, tang in*)
+    const onDownload = (file, title) => {
+        let link = document.createElement('a');
+        link.href = file;
+        link.download = title+'.xlsx'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link);
+    }
 
   return (
     <Box
@@ -49,7 +60,7 @@ function ProjectCard({project, allProjects, index}) {
         }}
     />
         {
-            (project.type === "Website" || project.type === "Company") &&
+            (project.type === "Website" || project.type === "Company" || project.type === "Data") &&
             <>
                 <Heading
                 fontSize={"md"}>
@@ -62,6 +73,7 @@ function ProjectCard({project, allProjects, index}) {
                 </Text>
                 <Stack direction={"row"}>
                     {
+                        
                         project.languages.map((lang, i) => {
                             return <Button 
                             key={i} 
@@ -86,6 +98,23 @@ function ProjectCard({project, allProjects, index}) {
                         <IconButton
                             icon={<FaLink/>}
                             size="sm"
+                            bgColor="#a0522d"
+                            transition="ease-in-out .4s"
+                            _hover={{
+                                color: '#a0522d',
+                                background: '#fff'
+                            }}
+                            color="#fff"
+                        />
+                    </Link>
+                    : ""
+                    }
+                    {
+                    project.type === "Data" ?
+                    <Link href={project.file} download={project.title+".xlsx"} display={"block"} ms={"auto"} target="_blank"> 
+                        <IconButton
+                            icon={<FaDownload/>}
+                            size="xs"
                             bgColor="#a0522d"
                             transition="ease-in-out .4s"
                             _hover={{

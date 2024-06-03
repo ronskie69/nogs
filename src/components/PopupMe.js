@@ -76,7 +76,8 @@ function PopupMe({ isOpenMe, onToggleMe }) {
                 bgClip="text"
                 bgGradient="linear(to-r, #cd7f32, #a0522d, #a0522d)" 
                 fontSize={"sm"}>
-                    <Text fontFamily="Japanan" textAlign="center">こんにちは、友達!</Text> What can I do for you?
+                    {/* <Text fontFamily="Japanan" textAlign="center">こんにちは、友達!</Text> What can I do for you? */}
+                    <Text fontFamily="Japanan" textAlign="center">こんにちは、友達!</Text> I am open to work with you.
                 </Text>
 
               <Text

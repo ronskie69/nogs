@@ -11,7 +11,8 @@ import {
      "Customer Service",
      "Software Maintenance",
      "Graphic Design",
-     "Create aesthetic websites"
+     "Create aesthetic websites",
+     "Data Entry/Encoding",
 ]
 
 const services = [
@@ -25,7 +26,7 @@ const services = [
     "Thesis / Capstone Project",
     "Geographic or Location-based",
     "Tourism",
-    "Government"
+    "Government",
 ]
 
 const aboutMe =  [
@@ -38,7 +39,7 @@ const aboutMe =  [
     {
         id: 2,
         text: "Optimistic",
-        desc: "Being an optimistic helps me to bounce back from setbacks and improve my focus and determination. I view unpleasant situations not as failures, but as an opportunity to learn and grow. I strongly believe that having an optimisitic mindset leads to success.",
+        desc: "Being an optimistic helps me to bounce back from setbacks and improve my focus and determination. I view unpleasant situations not as failures, but as an opportunity to learn and grow.",
         icon: FaBullseye
     },
     {
@@ -50,7 +51,7 @@ const aboutMe =  [
     {
         id: 4,
         text: "Persuasive",
-        desc: "Paying close attention to the concerns, needs, and perspectives of my customers was the skill I developed from my different experiences in my career. By understanding their viewpoints, I can present my ideas in an effective way and make them see the value of what I am proposing. And this results to a good collaboration between me and my customers.",
+        desc: "By understanding the viewpoints, concerns and suggestions of my customers, I can present my ideas in an effective way and make them see the value of what I am proposing. And this results to a good collaboration between me and my customers.",
         icon: FaRocketchat
     },
     {
@@ -74,7 +75,7 @@ const _2024 = [
         id: 2,
         date: 'Jan 02',
         position: 'Web Developer',
-        desc: 'Specialized in Web Development using PHP and different technologies.',
+        desc: 'Specialized in Web Development using different technologies.',
         company: 'Roberts AIPMC',
         year: '2024'
     },
@@ -83,9 +84,9 @@ const _2024 = [
 const _2022 = [
     {
         id: 2,
-        date: 'Sep 20',
+        date: 'Sep 20 - June 2024',
         position: 'Programmer',
-        desc: 'Develop web-based systems for department in the company and HR payroll system modification and maintenance',
+        desc: 'Develop web-based systems for department in the company and Payroll System modification and maintenance',
         company: 'Roberts AIPMC',
         year: '2022'
     },

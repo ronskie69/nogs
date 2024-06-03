@@ -14,7 +14,7 @@ function Footer(props) {
         boxShadow={"md"}
         p={2.5}>
         <Text fontSize={13}>Edi wew ^_^. @2022 - {new Date().getFullYear()}</Text>
-        {/* <Text fontSize={9}>I'm really sorry for using a dog image for my logo and branding.</Text> */}
+        {/* <Text fontSize={9}>I'm really  sorry for using a dog image for my logo and branding.</Text> */}
 
 
             <HStack spacing={1}>

@@ -43,7 +43,7 @@ function Experience({work}){
                                 key={x}
                             >
                                 <HStack w="50%" className='blank'></HStack>
-                                <Box data-aos="fade-up" style={{
+                                <Box style={{
                                     width: '50%',
                                     paddingLeft: '20px',
                                     paddingRight: '10px',

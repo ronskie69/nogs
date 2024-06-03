@@ -29,11 +29,11 @@ function App() {
 
   React.useEffect(() => {
     AOS.init({
-      duration: 900,
+      duration: 1100,
       easing: 'ease-in-out-cubic',
-      delay: 100,
-      once: true
-    });
+      once: true,
+      delay: 100
+    }); // punyetang bug
 
     setTimeout(() => {
       onToggle()
@@ -57,7 +57,7 @@ function App() {
       <Heady fontweight={"bold"} mb={5} p={4} textAlign="center">Work Experience</Heady>
       {
         work_exp.map((work, i) => {
-            return <Experience work={work} key={i}/>
+            return <Experience work={work} key={Math.random()*1999}/>
         })
       }
       <Projects/>
